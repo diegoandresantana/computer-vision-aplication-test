@@ -1,4 +1,4 @@
-# __Exemplos de visão computacional  
+# __Samples of Computer Vision  
 __Autor__: Diego André Sant'Ana (diego.santana@ifms.edu.br)  
 __Version__: 1.0.0  
 
