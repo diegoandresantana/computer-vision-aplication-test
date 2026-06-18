@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Vision Application - pyAplicativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>🖼️ Computer Vision Application</h1>
+            <p class="subtitle">Real-time image processing with OpenCV & Python</p>
+            <div class="badges">
+                <span class="badge">Python 2.7</span>
+                <span class="badge">OpenCV</span>
+                <span class="badge">Tkinter</span>
+                <span class="badge">v1.0.0</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="toc">
+        <div class="container">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#operations">Operations</a></li>
+                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="#parameters">Parameters</a></li>
+                <li><a href="#demo">Interactive Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="overview" class="section">
+            <h2>📖 Overview</h2>
+            <p>This project demonstrates various computer vision techniques applied to real-time video capture. 
+               The application provides an interactive GUI where users can select different image processing 
+               operations and adjust parameters dynamically.</p>
+            <p><strong>Author:</strong> Diego André Sant'Ana (diego.santana@ifms.br)</p>
+        </section>
+
+        <section id="features" class="section">
+            <h2>✨ Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Real-time Capture</h3>
+                    <p>Live webcam video processing with instant feedback</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <h3>Side-by-Side View</h3>
+                    <p>Compare original and processed images simultaneously</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>12 Operations</h3>
+                    <p>Multiple filtering, edge detection, and morphological operations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎛️</div>
+                    <h3>Adjustable Params</h3>
+                    <p>Fine-tune kernel sizes and threshold values in real-time</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="operations" class="section">
+            <h2>📋 Available Operations</h2>
+            
+            <div class="operation-category">
+                <h3>🔍 Filtering</h3>
+                <div class="operation-list">
+                    <div class="operation-item">
+                        <strong>Adaptive Threshold (Gaussian)</strong>
+                        <p>Adaptive thresholding with Gaussian weighting for better local contrast</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Adaptive Threshold (Mean)</strong>
+                        <p>Adaptive thresholding using mean of neighborhood area</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-category">
+                <h3>📐 Edge Detection</h3>
+                <div class="operation-list">
+                    <div class="operation-item">
+                        <strong>Find Contours</strong>
+                        <p>Detect and draw object boundaries - adjust Min/Max threshold values</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Canny Edge Detection</strong>
+                        <p>Classic multi-stage edge detection algorithm</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-category">
+                <h3>🔷 Morphological Operations</h3>
+                <div class="operation-list">
+                    <div class="operation-item">
+                        <strong>Black Hat</strong>
+                        <p>Difference between closing operation and original image</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Erode</strong>
+                        <p>Shrinks bright regions, removes small white noise</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Dilate</strong>
+                        <p>Expands bright regions, fills small holes</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Open</strong>
+                        <p>Erosion followed by dilation - removes small objects</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Close</strong>
+                        <p>Dilation followed by erosion - fills small holes</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Gradient</strong>
+                        <p>Difference between dilation and erosion - highlights edges</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-category">
+                <h3>✂️ Segmentation</h3>
+                <div class="operation-list">
+                    <div class="operation-item">
+                        <strong>Threshold Binary Inverse</strong>
+                        <p>Binary thresholding with inverted output</p>
+                    </div>
+                    <div class="operation-item">
+                        <strong>Threshold Binary</strong>
+                        <p>Standard binary thresholding for image segmentation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="requirements" class="section">
+            <h2>🛠️ Requirements</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h4>System Dependencies</h4>
+                    <ul>
+                        <li>Python 2.7+</li>
+                        <li>NVIDIA CUDA Libraries (optional)</li>
+                        <li>NVIDIA cuDNN Libraries (optional)</li>
+                    </ul>
+                </div>
+                <div class="requirement-item">
+                    <h4>Python Packages</h4>
+                    <code>pip install numpy opencv-python pillow scikit-image scikit-learn h5py</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="usage" class="section">
+            <h2>🚀 How to Use</h2>
+            <ol class="steps">
+                <li>
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                        <strong>Clone the repository</strong>
+                        <p>Download or clone this project to your local machine</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                        <strong>Install requirements</strong>
+                        <p>Install all Python packages listed above</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                        <strong>Run the application</strong>
+                        <code>python pyAplicativo.py</code>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-number">4</span>
+                    <div class="step-content">
+                        <strong>Activate camera</strong>
+                        <p>Click "Active Capture" button to start webcam</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-number">5</span>
+                    <div class="step-content">
+                        <strong>Select operation</strong>
+                        <p>Choose from 12 different computer vision operations</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-number">6</span>
+                    <div class="step-content">
+                        <strong>Adjust parameters</strong>
+                        <p>Use spinboxes to fine-tune Kernel, Min, and Max values</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="parameters" class="section">
+            <h2>🔧 Configuration Parameters</h2>
+            <table class="params-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                        <th>Default</th>
+                        <th>Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kernel</strong></td>
+                        <td>Size of morphological operation kernel</td>
+                        <td>5</td>
+                        <td>1-255</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Min</strong></td>
+                        <td>Minimum threshold value</td>
+                        <td>127</td>
+                        <td>0-255</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Max</strong></td>
+                        <td>Maximum threshold value</td>
+                        <td>255</td>
+                        <td>0-255</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="demo" class="section">
+            <h2>🎮 Interactive Operation Demo</h2>
+            <p>Explore how different operations affect an image. Upload an image or use the sample to see effects!</p>
+            
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <label for="operationSelect">Select Operation:</label>
+                    <select id="operationSelect">
+                        <option value="none">-- Select --</option>
+                        <optgroup label="Filtering">
+                            <option value="adaptive_mean">Adaptive Threshold (Mean)</option>
+                            <option value="adaptive_gaussian">Adaptive Threshold (Gaussian)</option>
+                        </optgroup>
+                        <optgroup label="Edge Detection">
+                            <option value="contours">Find Contours</option>
+                            <option value="canny">Canny Edge Detection</option>
+                        </optgroup>
+                        <optgroup label="Morphological">
+                            <option value="blackhat">Black Hat</option>
+                            <option value="erode">Erode</option>
+                            <option value="dilate">Dilate</option>
+                            <option value="open">Open</option>
+                            <option value="close">Close</option>
+                            <option value="gradient">Gradient</option>
+                        </optgroup>
+                        <optgroup label="Segmentation">
+                            <option value="binary_inv">Threshold Binary Inverse</option>
+                            <option value="binary">Threshold Binary</option>
+                        </optgroup>
+                    </select>
+
+                    <div class="param-controls">
+                        <div class="param-control">
+                            <label for="kernelSize">Kernel Size:</label>
+                            <input type="range" id="kernelSize" min="1" max="21" value="5" step="2">
+                            <span id="kernelValue">5</span>
+                        </div>
+                        <div class="param-control">
+                            <label for="thresholdMin">Min Threshold:</label>
+                            <input type="range" id="thresholdMin" min="0" max="255" value="127">
+                            <span id="minValue">127</span>
+                        </div>
+                        <div class="param-control">
+                            <label for="thresholdMax">Max Threshold:</label>
+                            <input type="range" id="thresholdMax" min="0" max="255" value="255">
+                            <span id="maxValue">255</span>
+                        </div>
+                    </div>
+
+                    <button id="applyBtn" class="btn-primary">Apply Operation</button>
+                    <button id="resetBtn" class="btn-secondary">Reset</button>
+                </div>
+
+                <div class="demo-images">
+                    <div class="image-panel">
+                        <h4>Original</h4>
+                        <canvas id="originalCanvas"></canvas>
+                    </div>
+                    <div class="image-panel">
+                        <h4>Processed</h4>
+                        <canvas id="processedCanvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Computer Vision Application. Developed by Diego André Sant'Ana.</p>
+            <p>Licensed under MIT License.</p>
+            <div class="footer-links">
+                <a href="https://github.com" target="_blank">GitHub Repository</a>
+                <a href="mailto:diego.santana@ifms.br">Contact Author</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
